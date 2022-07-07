@@ -1,11 +1,12 @@
 <?php
+
 /*
 	Doodstream.com API library PHP
 	PHP verison should be atleast 5.5 to use the library
 */
 
 class DoodstreamAPI {
-	private $api_key = '';
+	private $api_key = 'your_api_key'; //your api key here
 	
 	public function Setup($api_key) {
 		$this->api_key = $api_key;
@@ -47,7 +48,7 @@ class DoodstreamAPI {
 	public function Upload($tempfile, $type, $name) {
 		$upload = $this->api_call('upload', 'server', array());
 		$json  = json_decode($upload, true);
-                return $this->post_call($tempfile, $type, $name, $json["result"]);
+        return $this->post_call($tempfile, $type, $name, $json["result"]);
 	}
 
     /**
@@ -410,7 +411,7 @@ class DoodstreamAPI {
 	    
 		$data = curl_exec($ch);                
 		if ($data !== FALSE) {
-                  return $data;
+            return $data;
 		} else {
 			return array('error' => 'cURL error: '.curl_error($ch));
 		}
@@ -437,14 +438,13 @@ class DoodstreamAPI {
              'api_key' => "$key",
              'file' => curl_file_create($tempfile, $type, $name)
             );
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
 
 		$data = curl_exec($ch);                
 		if ($data !== FALSE) {
-                 return $data;
+            return $data;
 		} else {
 			return array('error' => 'cURL error: '.curl_error($ch));
 		}
 	}
 };
-
