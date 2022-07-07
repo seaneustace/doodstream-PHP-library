@@ -1,7 +1,13 @@
-# doodstream-PHP-library
-Unofficial PHP API library for Doodstream.com <br>
+# doodstream-PHP-libraryV2
+Unofficial PHP API library for Doodstream.com Version 2<br>
 Minimum PHP version : 5.5
+Credit: https://github.com/Marchay
 
+I hope this finds you well, I expanded on Marchay's template for a project i was working on. The same Doodstream PHP template with but with a SQL implementation to store and serve these API Post's for end-users :)
+
+## Demo Website
+
+https://openvideo.net
 
 ## Initializing
 *doodstream.php* needs to be included into the code and initialized using the following way:- 
@@ -12,6 +18,34 @@ Minimum PHP version : 5.5
   $ds = new DoodstreamAPI();
   $ds->Setup($key);
   ```
+  
+## Upload.php
+
+```
+$key = "your_api_key";      //Insert API key here
+```
+
+## Database
+
+```
+// Database configuration  
+define('DB_HOST', 'localhost'); 
+define('DB_USERNAME', 'username'); //your db_username
+define('DB_PASSWORD', 'password'); //your db_password
+define('DB_NAME', 'db_name'); //your db_name
+```
+
+`video_data` (`id`, `title`, `filecode`, `download_url`, `protected_embed`, `protected_dl`, `single_img`, `splash_img`, `uploaded`)`
+
+Video_data pulled from API POST stored via SQL, served via video.php
+
+## Version 2 Update
+
+* Re-Designed Graphical User Interface (GUI)
+* Drag & Drop Video Files
+* API requests stored via SQL for functioning file-sharing experience via your custom domain (e.g. example.com/myvideo)
+* Progress Bar and Video landing Page with Built-in Doodstream Player & end-user code
+* Click-to-copy functionality and much more
 
 ## Example Usage
 
@@ -25,6 +59,9 @@ Minimum PHP version : 5.5
 ```
 Example of uploading a file using API can be found inside `example folder`
 
+## Limitations
+
+Please Note: Not stated in the original https://github.com/Marchay/doodstream-PHP-library from marchay there is a limitation with post_max_size with your hosting providers usually this limit is within 250mb-2Gb so please keep this in mind before implementing this solution.
 
 ## Functions
 
